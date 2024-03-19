@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Fourier</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="manifest" href="fourier.webmanifest" />
+    <style>
+        body {
+            width: 100vw;
+            margin: 0%;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        canvas {
+            border: 1px solid #d3d3d3;
+            background-color: #f1f1f1;
+            display: block;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin-bottom: 0%;
+        }
+
+        input[type=radio] {
+            border: 0px;
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        input[type=range] {
+            width: 80%;
+        }
+
+        .slidecontainer {
+            text-align: center;
+        }
+
+        form {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+
+<body onload="initGame()">
+    <h1 ondblclick="secret()">Fourier Series</h1>
+    <span id="info">
+        Basic structure from these tutorials:
+        <a target="blank" href="https://www.youtube.com/watch?v=Mm2eYfj0SgA">Fourier Series</a>,
+        <a target="blank" href="https://www.youtube.com/watch?v=MY4luNgGfms">Fourier Transform</a>
+    </span>
+    <form>
+        <input type="radio" id="square" name="waveform" value="square">
+        <label for="square">Square</label>
+        <input type="radio" id="stair" name="waveform" value="stair">
+        <label for="stair">Stair</label>
+        <input type="radio" id="custom1" name="waveform" value="custom1yy">
+        <label for="custom">Custom 1</label>
+        <input type="radio" id="custom2" name="waveform" value="custom2">
+        <label for="custom">Custom 2</label>
+        <input type="radio" id="draw" name="waveform" value="draw">
+        <label for="custom">Draw</label>
+    </form>
+    <canvas id="canvas" width="800" height="600" style="background-color: rgb(255, 255, 255); "></canvas>
+    <div id="sliderbox">
+        <div id="waveSliders">
+            <div class="slidecontainer">
+                <p id="numberSlider">
+                    <span>Number of Circles:</span>
+                    <input type="range" min="1" max="100" value="1" class="slider" id="number">
+                    <span id="outputN"></span>
+                    <input type="checkbox" id="perfect" name="perfect" value="perfect">
+                    <label for="perfect">1000</label><br>
+                </p>
+            </div>
+            <div class="slidecontainer">
+                <p id="radiusSlider">
+                    <span>Radius:</span>
+                    <input type="range" min="50" max="150" value="100" class="slider" id="radius">
+                    <span id="outputR"></span>
+                </p>
+            </div>
+            <div class="slidecontainer">
+                <p>
+                    <span>Speed:</span>
+                    <input type="range" min="-0.1" max="0.1" value="0.05" step="0.001" class="slider" id="speed">
+                    <span id="outputS"></span>
+                </p>
+            </div>
+        </div>
+        <div id="customSliders">
+            <div class="slidecontainer">
+                <p id="customSlider">
+                    <span>Detail:</span>
+                    <input type="range" min="1" max="100" value="1" step="1" class="slider" id="detail">
+                    <span id="outputD"></span>
+                </p>
+            </div>
+            <div class="slidecontainer">
+                <p id="shapeSlider">
+                    <span>Shape:</span>
+                    <input type="range" min="0.1" max="10" value="1" step="0.05" class="slider" id="shape">
+                    <span id="outputShape"></span>
+                </p>
+            </div>
+            <div class="slidecontainer">
+                <p>
+                    <span>Speed:</span>
+                    <input type="range" min="1" max="100" value="20" step="1" class="slider" id="customSpeed">
+                    <span id="outputCS"></span>
+                </p>
+            </div>
+        </div>
+        <div id="drawButtons">
+            <div class="buttoncontainer">
+                <p>
+                    <input type="button" id="clearButton" value="Clear" onclick="clearCanvas()">
+                    <input type="button" id="saveButton" value="Save" onclick="save()">
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="fourier.js"></script>
+</body>
+
+</html>

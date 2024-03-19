@@ -1,0 +1,25 @@
+{
+    "short_name": "Fourier App",
+    "name": "Fourier Series App",
+    "icons": [
+        {
+            "src": "img/favicon.ico",
+            "sizes": "32x32",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "img/icon_64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icon_512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/fourier/index.html",
+    "display": "standalone",
+    "theme_color": "#ffffff",
+    "background_color": "#000000"
+}
